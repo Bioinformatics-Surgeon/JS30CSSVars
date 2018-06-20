@@ -4,9 +4,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Scoped CSS Variables and JS</title>
+  <!-- <link rel="stylesheet" href="css/reset.css"> -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/baseline_music_note_black_18dp.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!--Import Google Fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Yatra+One" rel="stylesheet">
+
 </head>
 
 <body>
+
+  <div class="navbar-fixed">
+    <nav class="grey darken-3" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="http://www.mudanic.com/JS30DrumKit/" class="brand-logo">Mu-Drumic Kit</a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <i class="material-icons">info</i>
+          </li>
+          <li>
+            <a href="https://github.com/Bioinformatics-Surgeon/JS30DrumKit/blob/master/README.md" target="_blank">About</a>
+          </li>
+          <li>
+            <i class="material-icons">contact_support</i>
+          </li>
+          <li>
+            <a href="#" target="_blank">Contact</a>
+          </li>
+        </ul>
+
+        <ul id="nav-mobile" class="sidenav">
+          <li>
+            <a href="#" style="color:whitesmoke;">About</a>
+          </li>
+          <li>
+            <a href="#" style="color:whitesmoke;">Store</a>
+          </li>
+          <li>
+            <a href="#" style="color:whitesmoke;">Contact</a>
+          </li>
+
+
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </nav>
+  </div>
+
   <h2>Update CSS Variables with
     <span class='hl'>JS</span>
   </h2>
@@ -24,40 +85,6 @@
 
   <img src="http://res.cloudinary.com/moodyappcloudname/image/upload/c_scale,w_900/v1529353141/teacup.jpg">
 
-  <style>
-    :root {
-      --base: #ffc600;
-      --spacing: 50px;
-      --blur: 10px;
-    }
-
-    img {
-      padding: var(--spacing);
-      background: var(--base);
-      filter: blur(var(--blur));
-    }
-
-    .hl {
-      color: var(--base);
-    }
-
-    body {
-      text-align: center;
-      background: #193549;
-      color: white;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
-    }
-
-    .controls {
-      margin-bottom: 50px;
-    }
-
-    input {
-      width: 100px;
-    }
-  </style>
 
   <script>
     const inputs = document.querySelectorAll(`.controls input`);
@@ -65,7 +92,7 @@
     function handleUpdate() {
       const suffix = this.dataset.sizing || "";
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-}
+    }
 
     inputs.forEach(input => input.addEventListener("change", handleUpdate))
     inputs.forEach(input => input.addEventListener("mousemove", handleUpdate))
